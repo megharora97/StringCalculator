@@ -13,11 +13,12 @@ export default function add(numbers) {
 
   const regex = new RegExp(`[${delimiters.join("")}]`);
   const numArray = numString.split(regex).map(Number);
-
   const negatives = numArray.filter((num) => num < 0);
   if (negatives.length) {
     throw new Error(`Negative numbers not allowed: ${negatives.join(", ")}`);
   }
 
-  return numArray.reduce((sum, num) => sum + num, 0);
+  return numArray
+    .filter((num) => !isNaN(num))
+    .reduce((sum, num) => sum + num, 0);
 }

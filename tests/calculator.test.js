@@ -1,4 +1,4 @@
-import add from "./stringCalculator";
+import add from "../app/add";
 
 describe("String Calculator", () => {
   test("should return 0 for an empty string", () => {
